@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galería - Colegio Trilce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --trilce-naranja: #f57c00; /* naranja principal */
+      --trilce-azul: #1565c0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfc;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 230px;
+      height: 100%;
+      background-color: var(--trilce-naranja);
+      padding: 30px 20px;
+      color: white;
+      box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar img {
+      width: 180px;
+      display: block;
+      margin: 0 auto 40px auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #d46a00;
+      transform: translateX(5px);
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 40px;
+    }
+
+    .title {
+      color: var(--trilce-azul);
+      margin-bottom: 30px;
+      border-left: 6px solid var(--trilce-naranja);
+      padding-left: 12px;
+      font-size: 2rem;
+    }
+
+    .gallery-item {
+      border: 2px solid var(--trilce-naranja);
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+      background: white;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--trilce-naranja);
+    }
+
+    .description {
+      display: none;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .show {
+      display: block !important;
+    }
+
+    footer {
+      margin-left: 250px;
+      padding: 20px 40px;
+      background-color: #f2f2f2;
+      color: #555;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      .sidebar img {
+        display: none;
+      }
+
+      .content, footer {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <div class="sidebar">
+    <img src="logo.jpg.png" alt=/>
+    <a href="index.html">Inicio</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1 class="title">Galería - Colegio Trilce</h1>
+    <p>Haz clic en una sede para ver más información sobre nuestras instalaciones y programas educativos.</p>
+
+    <div class="row g-4">
+
+      <!-- Tarjeta 1 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc1')">
+          <img src="lima centro.jpg" alt="Sede Lima Centro" />
+          <div class="gallery-caption">Sede Lima Centro</div>
+          <div class="description" id="desc1">
+            Moderna infraestructura con enfoque en innovación educativa.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc2')">
+          <img src="los olivos.jpg" alt="Sede Los Olivos" />
+          <div class="gallery-caption">Sede Los Olivos</div>
+          <div class="description" id="desc2">
+            Centro de ciencia y tecnología con laboratorios interactivos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc3')">
+          <img src="san borja.jpg" alt="Sede San Borja" />
+          <div class="gallery-caption">Sede San Borja</div>
+          <div class="description" id="desc3">
+            Talleres artísticos, musicales y deportivos integrados al plan académico.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc4')">
+          <img src="callao.jpg" alt="Sede Callao" />
+          <div class="gallery-caption">Sede Callao</div>
+          <div class="description" id="desc4">
+            Educación personalizada y enfoque en valores y liderazgo.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc5')">
+          <img src="chorillos.jpg" alt="Sede Chorrillos" />
+          <div class="gallery-caption">Sede Chorrillos</div>
+          <div class="description" id="desc5">
+            Programa de preparación preuniversitaria desde niveles básicos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc6')">
+          <img src="surco.jpg" alt="Sede Surco" />
+          <div class="gallery-caption">Sede Surco</div>
+          <div class="description" id="desc6">
+            Espacios amplios, aulas interactivas y comunidad estudiantil activa.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer>
+    Desarrollado por: CASTILLO FLORES, SEBASTIAN - Colegio Trilce © 2025
+  </footer>
+
+  <script>
+    function toggleDesc(id) {
+      const element = document.getElementById(id);
+      element.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
